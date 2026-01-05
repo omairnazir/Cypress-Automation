@@ -24,12 +24,12 @@ describe('This is the test for Login functionality', () => {
         cy.get('#password')
           .should('be.visible')
           .type(Cypress.env('TF_PASSWORD'), { log: false })
-          // Here at this stage , the login has been done but not fully confirmed 
+        // Here at this stage , the login has been done but not fully confirmed 
 
         cy.get('button[type="submit"]').click()
       })
-      //Verify success 
-      cy.url({timeout: 2000}).should ('not.include', 'login')
-      })
+    //Verify success 
+    cy.url({ timeout: 2000 }).should('not.include', 'login')
+  })
 
 })
