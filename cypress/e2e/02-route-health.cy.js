@@ -1,5 +1,11 @@
-// Suite goal: Login first, then verify each module URL loads by checking the URL contains the expected path.
-// Functions used: beforeEach() for repeating login, Cypress.env() for credentials, cy.visit() to open pages, cy.get() to type/click, cy.url() with timeout to confirm page load.
+// Purpose: Keep tests simple and reliable by logging in first, then validating each module page loads.
+// Approach: We run the same login steps before every test using beforeEach() so each test starts authenticated.
+// Credentials: Email and password are read from Cypress.env() instead of being hardcoded in the file.
+// Navigation: cy.visit() is used to open module URLs directly.
+// Actions: cy.get() is used to find inputs/buttons and perform typing and clicks.
+// Verification: We confirm navigation by checking the current URL with cy.url().
+// Stability: A timeout is used with cy.url() to handle slower page loads and reduce flaky failures.
+// Result: Each test passes when the URL contains the expected module path.
 
 describe('Route Health - pages load after login', () => {
 
